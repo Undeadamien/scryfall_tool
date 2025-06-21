@@ -1,1 +1,2 @@
-unique_artwork.json
+*.json
+*.txt
