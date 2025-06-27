@@ -1,3 +1,4 @@
 *.json
 .venv
 data
+.ipynb_checkpoints
