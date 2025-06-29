@@ -24,11 +24,11 @@ def main():
     df = df.iloc[::-1]
 
     ax = df.plot(kind="barh", edgecolor="black", color="dodgerblue")
-    for i, (value, _) in enumerate(zip(df.values, df.index)):
+    for i, (v, _) in enumerate(zip(df.values, df.index)):
         ax.text(
-            value / 2,
+            v / 2,
             i,
-            str(value),
+            str(v),
             ha="center",
             va="center",
             bbox=dict(facecolor="white", alpha=0.8),
