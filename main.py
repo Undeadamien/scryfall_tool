@@ -15,9 +15,17 @@ def main():
         return
 
     with open(files[0]) as file:
-        df = pd.read_json(file)
+        df_base = pd.read_json(file)
 
-    df.plot()
+    df = df_base
+
+    df = df["artist"].value_counts()
+    df = df.head(5)
+    df = df.iloc[::-1]
+
+    df.plot(kind="barh")
+    plt.xlabel("Artist")
+    plt.ylabel("Count")
     plt.show()
 
 
