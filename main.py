@@ -23,9 +23,36 @@ def main():
     df = df.head(5)
     df = df.iloc[::-1]
 
-    df.plot(kind="barh")
-    plt.xlabel("Artist")
-    plt.ylabel("Count")
+    ax = df.plot(kind="barh", edgecolor="black", color="dodgerblue")
+    for i, (value, _) in enumerate(zip(df.values, df.index)):
+        ax.text(
+            value / 2,
+            i,
+            str(value),
+            ha="center",
+            va="center",
+            bbox=dict(facecolor="white", alpha=0.8),
+        )
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(True)
+
+    plt.tick_params(
+        axis="both",
+        which="both",
+        bottom=False,
+        top=False,
+        left=False,
+        right=False,
+    )
+    plt.tick_params(
+        axis="x",
+        which="both",
+        labelbottom=False,
+    )
+    plt.xlabel("")
+    plt.ylabel("")
     plt.show()
 
 
